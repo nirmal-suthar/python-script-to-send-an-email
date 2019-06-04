@@ -5,7 +5,7 @@ from email.mime.text import MIMEText
 
 
 content="""\
-Hi Kushagra!
+Hello World
 """
 subject="Sent from my Python"
 
