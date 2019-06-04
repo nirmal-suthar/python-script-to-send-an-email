@@ -3,7 +3,12 @@ import smtplib
 from getpass import getpass
 from email.mime.text import MIMEText
 
+# sender mail details
+username = input("Enter your iitk username: ")
+from_email = username+"@iitk.ac.in"
+sender = from_email
 
+# content for the email
 content="""\
 Hello World
 """
@@ -22,15 +27,13 @@ to_email_list = input_string.split(",")
 # from_email = "nirmalps@iitk.ac.in"
 
 
-
+#establishing connection
 server = smtplib.SMTP("mmtp.iitk.ac.in",25)
 server.ehlo()
 server.starttls()
-
-
-username = input("Enter your iitk username: ")
-from_email = username+"@iitk.ac.in"
 print("Sending email from "+from_email)
+
+#attempting sendmail
 try:
     server.login(username,getpass("Please enter your iitk password: "))
 
