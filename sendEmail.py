@@ -13,11 +13,10 @@ text_subtype = 'plain'
 msg = MIMEText(content, text_subtype)
 msg['Subject'] = subject
 msg['From'] = sender
+msg = msg.as_string()
 
-# input_string = input("Enter email address(es) seperated by comma: ")
-# to_email_list = input_string.split(",")
-# kushgpt99@gmail.com
-to_email = "kushgpt99@gmail.com"
+input_string = input("Enter email address(es) seperated by comma: ")
+to_email_list = input_string.split(",")
 # to_email_list.append(to_email)
 
 # from_email = "nirmalps@iitk.ac.in"
@@ -37,7 +36,7 @@ try:
 
     try:
         print('Sending email...')
-        server.sendmail(from_email,to_email,msg)
+        server.sendmail(from_email,to_email_list,msg)
         print('Email sent')
     finally:
         server.quit()
